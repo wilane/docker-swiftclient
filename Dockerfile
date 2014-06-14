@@ -18,5 +18,6 @@ FROM ubuntu:latest
 MAINTAINER Hugo Duncan <hugo@palletops.com>
 
 # Add python swiftclient
-RUN ["apt-get", "install", "-y", "python-pip"]
-RUN ["pip", "install", "python-swiftclient", "python-keystoneclient"]
+RUN ["apt-get", "update"]
+RUN ["apt-get", "upgrade", "-y"]
+RUN ["apt-get", "install", "-y", "python-swiftclient"]
