@@ -14,7 +14,7 @@
 #   pallet/swiftclient
 #   swift upload mycontainer myfile-from-volume
 
-FROM ubuntu:latest
+FROM pallet/ubuntu-nodoc:latest
 MAINTAINER Hugo Duncan <hugo@palletops.com>
 
 # Add python swiftclient
