@@ -18,6 +18,6 @@ FROM pallet/ubuntu-nodoc:latest
 MAINTAINER Hugo Duncan <hugo@palletops.com>
 
 # Add python swiftclient
-RUN ["apt-get", "update"]
-RUN ["apt-get", "upgrade", "-y"]
-RUN ["apt-get", "install", "-y", "python-swiftclient"]
+RUN DEBIAN_FRONTEND=noninteractive apt-get update
+RUN DEBIAN_FRONTEND=noninteractive apt-get upgrade -y --no-install-recommends
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends python-swiftclient
