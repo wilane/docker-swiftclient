@@ -22,7 +22,10 @@ RUN awk '$1 ~ "^deb" { $3 = $3 "-backports"; print; exit }' /etc/apt/sources.lis
 MAINTAINER Hugo Duncan <hugo@palletops.com>
 
 # Add python swiftclient
+
 RUN DEBIAN_FRONTEND=noninteractive apt update
 RUN DEBIAN_FRONTEND=noninteractive apt upgrade -y --no-install-recommends
-RUN DEBIAN_FRONTEND=noninteractive apt install -y --no-install-recommends python-swiftclient
-RUN DEBIAN_FRONTEND=noninteractive apt install -y --no-install-recommends swift-bench
+RUN DEBIAN_FRONTEND=noninteractive apt install -y --no-install-recommends python python-dev python-setuptools python-pip
+
+RUN pip install python-swiftclient
+RUN pip install  swift-bench
