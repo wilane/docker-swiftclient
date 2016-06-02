@@ -15,6 +15,7 @@
 #   swift upload mycontainer myfile-from-volume
 #
 # /usr/bin/docker run --rm \
+#   wilane/python-swiftclient \
 #   swift-bench  -A 'AUTH_URL' -U 'subuser:swift' -K 'ULTRASUPERTOPSECRETKKKY' -n 10000 -g 100000 -C 10
 
 FROM debian:latest
