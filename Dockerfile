@@ -14,10 +14,10 @@
 #   pallet/swiftclient
 #   swift upload mycontainer myfile-from-volume
 
-FROM pallet/ubuntu-nodoc:latest
+FROM debian:latest
 MAINTAINER Hugo Duncan <hugo@palletops.com>
 
 # Add python swiftclient
 RUN DEBIAN_FRONTEND=noninteractive apt-get update
 RUN DEBIAN_FRONTEND=noninteractive apt-get upgrade -y --no-install-recommends
-RUN DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends python-swiftclient
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends python-swiftclient swift-bench
