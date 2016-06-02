@@ -13,11 +13,16 @@
 #   --name backup-file \
 #   pallet/swiftclient
 #   swift upload mycontainer myfile-from-volume
+#
+# /usr/bin/docker run --rm \
+#   swift-bench  -A 'AUTH_URL' -U 'subuser:swift' -K 'ULTRASUPERTOPSECRETKKKY' -n 10000 -g 100000 -C 10
 
 FROM debian:latest
+RUN awk '$1 ~ "^deb" { $3 = $3 "-backports"; print; exit }' /etc/apt/sources.list > /etc/apt/sources.list.d/backports.list
 MAINTAINER Hugo Duncan <hugo@palletops.com>
 
 # Add python swiftclient
-RUN DEBIAN_FRONTEND=noninteractive apt-get update
-RUN DEBIAN_FRONTEND=noninteractive apt-get upgrade -y --no-install-recommends
-RUN DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends python-swiftclient swift-bench
+RUN DEBIAN_FRONTEND=noninteractive apt update
+RUN DEBIAN_FRONTEND=noninteractive apt upgrade -y --no-install-recommends
+RUN DEBIAN_FRONTEND=noninteractive apt install -y --no-install-recommends python-swiftclient
+RUN DEBIAN_FRONTEND=noninteractive apt install -y --no-install-recommends swift-bench
