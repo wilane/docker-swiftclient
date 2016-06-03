@@ -20,7 +20,7 @@
 
 FROM debian:latest
 
-# unable backports
+# enable backports
 RUN awk '$1 ~ "^deb" { $3 = $3 "-backports"; print; exit }' /etc/apt/sources.list > /etc/apt/sources.list.d/backports.list
 MAINTAINER Ousmane Wilane <wilane@gmail.com>
 
